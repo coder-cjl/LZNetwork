@@ -1,0 +1,11 @@
+use_frameworks!
+
+platform :ios, '10.0'
+
+target 'LZNetwork_Example' do
+  pod 'LZNetwork', :path => '../'
+
+  target 'LZNetwork_Tests' do
+    inherit! :search_paths
+  end
+end
