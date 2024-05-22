@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 public class LZCache {
+    
     public static let `default` = LZCache()
     
     public var urlCache: URLCache?

@@ -31,7 +31,7 @@ class LZRequest<T: Decodable> {
             provider.request(target) { [weak self] result in
                 switch result {
                 case .success(let response):
-                    self?.handleSuccess(response: response, continuation: con)
+                    self?.handleSuccess(data: response.data, continuation: con)
                 case .failure(let moyaError):
                     self?.handleFailure(error: moyaError, continuation: con)
                 }
@@ -40,11 +40,11 @@ class LZRequest<T: Decodable> {
     }
     
     private func handleSuccess(
-        response: Response,
+        data: Data,
         continuation: CheckedContinuation<LZResult<T>, Never>
     ) -> Void {
         do {
-            let result = try JSONDecoder().decode(LZResponse<T>.self, from: response.data)
+            let result = try JSONDecoder().decode(LZResponse<T>.self, from: data)
             continuation.resume(returning: .success(result.data))
         } catch {
             continuation.resume(returning: .failure(.default("Model格式不对", -1)))
@@ -70,15 +70,10 @@ class LZRequest<T: Decodable> {
     ) -> Void {
         switch afError {
         case .requestAdaptationFailed(let requestError):
-            if let afRequestError = requestError as?Alamofire.AFError,
+            if let afRequestError = requestError as? Alamofire.AFError,
                case .urlRequestValidationFailed(let reason) = afRequestError,
                case .bodyDataInGETRequest(let data) = reason {
-                do {
-                    let result = try JSONDecoder().decode(LZResponse<T>.self, from: data)
-                    continuation.resume(returning: .success(result.data))
-                } catch {
-                    continuation.resume(returning: .failure(.default("Model格式不对", -1)))
-                }
+                handleSuccess(data: data, continuation: continuation)
             } else {
                 continuation.resume(returning: .failure(.systemError(requestError)))
             }
