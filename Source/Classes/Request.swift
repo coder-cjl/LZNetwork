@@ -10,7 +10,7 @@ import Moya
 import _Concurrency
 import Alamofire
 
-open class LZRequest<T: Decodable> {
+public class LZRequest<T: Decodable> {
     
     typealias RequestResultHandler = (LZResult<T>) -> Void
     typealias RequestSuccessResultHandler = (T?) -> Void
@@ -21,7 +21,7 @@ open class LZRequest<T: Decodable> {
         self.plugins = plugins
     }
     
-    func request<P: LZTargetType>(
+    public func request<P: LZTargetType>(
         _ target: P,
         type: T.Type
     ) async -> LZResult<T> {
@@ -116,7 +116,7 @@ open class LZRequest<T: Decodable> {
         }
     }
     
-    func requestOnlySuccess<P: LZTargetType>(
+   func requestOnlySuccess<P: LZTargetType>(
         _ target: P,
         type: T.Type
     ) async -> T? {
@@ -139,7 +139,7 @@ open class LZRequest<T: Decodable> {
         }
     }
     
-    func requestOnlySuccess<P: LZTargetType>(
+  func requestOnlySuccess<P: LZTargetType>(
         _ target: P,
         type: T.Type,
         handle: @escaping RequestSuccessResultHandler
@@ -155,7 +155,7 @@ open class LZRequest<T: Decodable> {
         }
     }
     
-    func requestOnlySuccess<P: LZTargetType>(
+   func requestOnlySuccess<P: LZTargetType>(
         _ target: P,
         handle: @escaping RequestSuccessResultHandler
     ) -> Void {

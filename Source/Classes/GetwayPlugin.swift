@@ -8,7 +8,7 @@
 import Foundation
 import Moya
 
-open class LZGetwayPlugin: PluginType {
+public class LZGetwayPlugin: PluginType {
     
     /// 判断网关
     public func process(
