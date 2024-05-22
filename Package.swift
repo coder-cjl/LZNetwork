@@ -26,9 +26,9 @@ let package = Package(
             dependencies: ["Alamofire", "Moya"],
             path: "Source"
         ),
-//        .testTarget(
-//            name: "LZNetworkTests",
-//            dependencies: ["LZNetwork"]),
+        .testTarget(
+            name: "LZNetworkTests",
+            dependencies: ["LZNetwork"]),
     ],
     swiftLanguageVersions: [.v5]
 )
