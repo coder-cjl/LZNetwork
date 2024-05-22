@@ -8,4 +8,4 @@
 import Foundation
 import Moya
 
-protocol LZTargetType: TargetType { }
+public protocol LZTargetType: TargetType { }

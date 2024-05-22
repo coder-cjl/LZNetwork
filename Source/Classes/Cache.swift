@@ -23,7 +23,6 @@ public class LZCache {
     func defaultConfig() {
         let cacheDirectoryURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
         let cacheURL = cacheDirectoryURL.appendingPathComponent("LZNetworkCache")
-        print(cacheURL.absoluteString)
         
         urlCache = URLCache(
             memoryCapacity: 4 * 1024 * 1024,

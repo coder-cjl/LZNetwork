@@ -10,8 +10,7 @@ import Moya
 import _Concurrency
 import Alamofire
 
-
-class LZRequest<T: Decodable> {
+open class LZRequest<T: Decodable> {
     
     typealias RequestResultHandler = (LZResult<T>) -> Void
     typealias RequestSuccessResultHandler = (T?) -> Void

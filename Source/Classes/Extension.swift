@@ -13,7 +13,7 @@ extension [String: Any]: LZCompatibleValue { }
 
 extension String: LZCompatibleValue { }
 
-extension LZWrapper where Base == Data {
+public extension LZWrapper where Base == Data {
     
     func asString() -> String {
         String(decoding: base, as: UTF8.self)
@@ -24,7 +24,7 @@ extension LZWrapper where Base == Data {
     }
 }
 
-extension LZWrapper where Base == [String: Any] {
+public extension LZWrapper where Base == [String: Any] {
     
     func asString() -> String? {
         if let jsonData = try? JSONSerialization.data(withJSONObject: base, options: .prettyPrinted),
@@ -36,7 +36,7 @@ extension LZWrapper where Base == [String: Any] {
 }
 
 
-extension LZWrapper where Base == String {
+public extension LZWrapper where Base == String {
     
     func asJSONObject() -> [String: Any]? {
         if let jsonData = base.data(using: .utf8),

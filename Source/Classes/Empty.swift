@@ -7,4 +7,4 @@
 
 import Foundation
 
-struct LZEmptyDecodable: Decodable { }
+public struct LZEmptyDecodable: Decodable { }

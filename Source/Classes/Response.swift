@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct LZResponse<T: Decodable>: Decodable {
-    let message: String?
-    let code: Int?
-    let data: T?
+public struct LZResponse<T: Decodable>: Decodable {
+    public let message: String?
+    public let code: Int?
+    public let data: T?
 
-    var isSuccess: Bool? {
+    public var isSuccess: Bool? {
         get {
             code == 0
         }
