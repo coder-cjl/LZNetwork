@@ -1,25 +1,29 @@
 # LZNetwork
 
 ## Cocodpods
+
 ```ruby
 pod 'LZNetwork'
 ```
 
 ## Package
+
 ```swift
 dependencies: [
     .package(url: "https://github.com/coder-cjl/LZNetwork.git", .upToNextMajor(from: "0.0.1"))
 ]
 ```
 
-Features
+## Features
+
 - [x] URLCache Plugin
 - [x] Concurrency
 - [x] Decodable
 
 ## Example
 
-## 网络配置
+### 网络配置
+
 在使用网络请求功能前，首先要先从自己的服务端加载网络配置,网络配置接口参数返回规则如下:
 ```json
 {
@@ -44,6 +48,7 @@ Features
 ```
 
 ### await sync
+
 ```swift
 _Concurrency.Task {
     let result = await LZRequest<User>().request(TestTargetApi.login("123", "123"))
