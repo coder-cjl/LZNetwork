@@ -9,7 +9,9 @@ import Foundation
 import Moya
 import Alamofire
 
-open class LZCachePlugin: PluginType {
+public class LZCachePlugin: PluginType {
+    
+    public init() { }
     
     public func prepare(
         _ request: URLRequest,

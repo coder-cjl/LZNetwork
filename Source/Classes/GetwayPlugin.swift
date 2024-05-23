@@ -10,6 +10,8 @@ import Moya
 
 public class LZGetwayPlugin: PluginType {
     
+    public init() { }
+    
     /// 判断网关
     public func process(
         _ result: Result<Response, MoyaError>,

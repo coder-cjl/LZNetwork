@@ -14,7 +14,6 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		931C8F6842B124E76F227F38 /* Pods_LZNetwork_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4ECF062F8A8847A958380CA /* Pods_LZNetwork_Tests.framework */; };
-		A7CAF0B32BFE031D00A8AB01 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CAF0B22BFE031D00A8AB01 /* Package.swift */; };
 		F4DFE9C11FA0D34242C83E6A /* Pods_LZNetwork_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DF7A1A23B1B7804E9005243 /* Pods_LZNetwork_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,7 +45,6 @@
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		6DF7A1A23B1B7804E9005243 /* Pods_LZNetwork_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LZNetwork_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		795A181E759921C7847158E8 /* Pods-LZNetwork_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LZNetwork_Tests.release.xcconfig"; path = "Target Support Files/Pods-LZNetwork_Tests/Pods-LZNetwork_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		A7CAF0B22BFE031D00A8AB01 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Package.swift; path = ../../Package.swift; sourceTree = "<group>"; };
 		CE1D815C2C14929FC0BBBEB7 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		E4ECF062F8A8847A958380CA /* Pods_LZNetwork_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LZNetwork_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -97,7 +95,6 @@
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
-				A7CAF0B22BFE031D00A8AB01 /* Package.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -338,7 +335,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7CAF0B32BFE031D00A8AB01 /* Package.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);

@@ -12,12 +12,12 @@ import Alamofire
 
 public class LZRequest<T: Decodable> {
     
-    typealias RequestResultHandler = (LZResult<T>) -> Void
-    typealias RequestSuccessResultHandler = (T?) -> Void
+    public typealias RequestResultHandler = (LZResult<T>) -> Void
+    public typealias RequestSuccessResultHandler = (T?) -> Void
     
-    var plugins: [PluginType]?
+    public var plugins: [PluginType]?
     
-    init(plugins: [PluginType] = [LZGetwayPlugin()]) {
+    public init(plugins: [PluginType] = [LZGetwayPlugin()]) {
         self.plugins = plugins
     }
     
@@ -81,11 +81,11 @@ public class LZRequest<T: Decodable> {
         }
     }
     
-    func request<P: LZTargetType>(_ target: P) async -> LZResult<T> {
+    public func request<P: LZTargetType>(_ target: P) async -> LZResult<T> {
         return await request(target, type: T.self)
     }
     
-    func request<P: LZTargetType>(
+    public func request<P: LZTargetType>(
         target: P,
         type: T.Type,
         handle: @escaping RequestResultHandler
@@ -101,7 +101,7 @@ public class LZRequest<T: Decodable> {
         }
     }
     
-    func request<P: LZTargetType>(
+    public func request<P: LZTargetType>(
         _ target: P,
         handle: @escaping RequestResultHandler
     ) -> Void {
@@ -116,7 +116,7 @@ public class LZRequest<T: Decodable> {
         }
     }
     
-   func requestOnlySuccess<P: LZTargetType>(
+    public func requestOnlySuccess<P: LZTargetType>(
         _ target: P,
         type: T.Type
     ) async -> T? {
@@ -129,7 +129,7 @@ public class LZRequest<T: Decodable> {
         }
     }
     
-    func requestOnlySuccess<P: LZTargetType>(_ target: P) async -> T? {
+    public func requestOnlySuccess<P: LZTargetType>(_ target: P) async -> T? {
         let result = await request(target, type: T.self)
         switch result {
         case .success(let value):
@@ -139,7 +139,7 @@ public class LZRequest<T: Decodable> {
         }
     }
     
-  func requestOnlySuccess<P: LZTargetType>(
+    public func requestOnlySuccess<P: LZTargetType>(
         _ target: P,
         type: T.Type,
         handle: @escaping RequestSuccessResultHandler
@@ -155,7 +155,7 @@ public class LZRequest<T: Decodable> {
         }
     }
     
-   func requestOnlySuccess<P: LZTargetType>(
+    public func requestOnlySuccess<P: LZTargetType>(
         _ target: P,
         handle: @escaping RequestSuccessResultHandler
     ) -> Void {
