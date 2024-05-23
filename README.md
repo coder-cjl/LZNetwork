@@ -88,7 +88,51 @@ public func loadConfig( _ url: String, loadCache: Bool = false) -> Void {
 }
 ```
 
-### await sync
+当开启缓存配置后，想定期更新网络配置，可以试着在`url`后拼接参数
+
+```
+url?r=xxxx
+```
+
+其中r=xxx是你的缓存策略，可以以天为单位，也可以以周或者月为单位。
+
+
+### 数据转模型
+
+采用的是`Codable`系统方案，随着Swift的更新迭代以及我的使用体验，`Codable`已经可以胜任日常的开发工作。
+
+### 网络请求
+
+#### 配置 LZTargetType
+```swift
+extension LZTargetType {
+    var baseURL: URL {
+        if let urlStr = LZEnv.default.currentURLConfig?["api_url"] as? String,
+           let url = URL(string: urlStr) {
+            return url
+        }
+        return URL.init(string: "")!
+    }
+
+    var task: Moya.Task {
+        .requestPlain
+    }
+
+    var headers: [String : String]? {
+        var h = [String: String]()
+        h["version"] = "0.0.1"
+        h["platform"] = "ios"
+        h["Content-Type"] = "application/json"
+//        if let accessToken = UserDefaults.standard.string(forKey: "accessToken") {
+//            h["Authorization"] = "Bearer \(accessToken)"
+//        }
+        return h
+    }
+}
+```
+可以在extension中配置项目的全局参数，如accessToken等字段，也可以在LZRequest(plugins:[])中设置
+
+#### await async
 
 ```swift
 _Concurrency.Task {
@@ -101,7 +145,17 @@ _Concurrency.Task {
     }
 }
 ```
-### 
+#### block
+```swift
+LZRequest().request(target: TestTargetApi.sms("123"), type: User.self) { result in
+    switch result {
+    case .success(let user):
+        print(user?.name ?? "")
+    case .failure(let error):
+        print(error.errorDescription ?? "")
+    }
+}
+``` 
 
 ## Author
 
