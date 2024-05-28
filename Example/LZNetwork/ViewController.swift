@@ -65,15 +65,7 @@ class ViewController: UIViewController {
     }
     
     func testList() {
-        _Concurrency.Task {
-            let result = await LZRequest<[List]>().request(TestTargetApi.list)
-            switch result {
-            case .success(let list):
-                print(list?.count ?? "0")
-            case .failure(let error):
-                print(error.errorDescription ?? "")
-            }
-        }
+
     }
     
     func testURLCache() {
