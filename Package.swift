@@ -6,8 +6,6 @@ let package = Package(
     name: "LZNetwork",
     platforms: [
         .iOS(.v13),
-        .watchOS(.v6),
-        .macOS(.v10_15),
     ],
     products: [
         .library(
