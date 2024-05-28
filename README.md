@@ -29,7 +29,7 @@ func getDrug() -> Observable<Result<KKMPPlanSearchDrugModel?, LCError>> {
 - 全局事件抛出机制繁琐
 - 对RxSwift依赖严重
 
-随着`Flutter`的流行，我们新启动的项目全部`All in flutter`。老项目处于一个日常维护迭代，发版频率大概一年一次。
+随着`Flutter`的流行，我们新启动的项目全部`All in Flutter`。老项目处于一个日常维护迭代，发版频率大概一年一次。
 
 随着这次`Swift5.9`的更新，`HandyJSON`毫无征兆的崩溃了。方案一是采用`Codable`替换`HandyJSON`框架，但真正在实际执行中，发现自己4年前作为一个Swift小白写的那些垃圾代码，改动起来是真要命。于是采取了方案二，通过修改cocoapods配置，暂时解决了这一崩溃问题。
 ```ruby
@@ -44,7 +44,7 @@ end
 
 这就是LZNetwork的由来，虽然它目前看来很简单，但使用它可以进行更深层次的二次开发，它对未来业务的扩展也更加灵活，使用方式也更加简单。
 
-## Cocodpods
+## Cocoapods
 ```ruby
 pod 'LZNetwork'
 ```
@@ -256,7 +256,7 @@ LZRequest().request(target: TestTargetApi.sms("123"), type: User.self) { result 
         print(error.errorDescription ?? "")
     }
 }
-``` 
+```
 
 #### List Model
 ```swift
