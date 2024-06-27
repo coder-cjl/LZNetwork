@@ -80,6 +80,27 @@ class ViewController: UIViewController {
         }
     }
     
+    
+    func testExtensionRequest() {
+        _Concurrency.Task {
+            let result = await TestTargetApi.sms("123").request(type: LZEmptyDecodable.self)
+            switch result {
+            case .failure(let error):
+                break
+            case .success(let obj):
+                break
+            }
+        }
+        
+        TestTargetApi.sms("123").request(type: LZEmptyDecodable.self) { result in
+               switch result {
+               case .failure(let error):
+                   break
+               case .success(let obj):
+                   break
+               }
+           }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
